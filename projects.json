@@ -1,0 +1,28 @@
+{
+  "profile": {
+    "img": "<img id=\"myPhoto\" src=\"gemma.jpg\" alt=\"Gemma Faye Triste Photo\">",
+    "fullName": "Gemma Faye Alcantara Triste",
+    "displayName": "Gemma Faye A. Triste",
+    "course": "BSINTE",
+    "school": "NVSU Bambang Campus",
+    "location": "Purok 4, Magsaysay Hill, Bambang, Nueva Vizcaya 3702",
+    "phone": "+63 951 7071 834",
+    "email": "gemmafayetriste2@gmail.com",
+    "website": "GemmaFayeTriste.github.io"
+  },
+  "education": [
+    { "level": "Elementary", "school": "Magsaysay Hill", "years": "2012-2019", "award": "Valedictorian" },
+    { "level": "Secondary", "school": "Bambang National High", "years": "2019-2025", "award": "With Honors" },
+    { "level": "Tertiary", "school": "NVSU Bambang Campus", "years": "2025-Present", "course": "BSINTE" }
+  ],
+  "experiences": [
+    "Assistant in Printing Services",
+    "Academic Commissioner",
+    "Cleaner - hardworking & disciplined"
+  ],
+  "skills": [
+    { "name": "Playing Arnis", "level": 95 },
+    { "name": "Designing", "level": 90 }
+  ],
+  "talents": ["Eating", "Designing", "Journaling", "Photography"]
+}

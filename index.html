@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gemma Faye Triste Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;
+  padding:0;
+  box-sizing:border-box; 
+  scroll-behavior:smooth}
+body{ 
+  font-family:Inter;
+  background:#fff0f6; 
+  padding:18px; 
+  transition:.4s}
+body.dark{ 
+  background:#120a1f}
+body.dark.box{ 
+  background:#221436; 
+  border-color:#5a2d6e; 
+  box-shadow:0 8px 0 #5a2d6e; 
+  color:#ffd6ee}
+body.dark.item{ 
+  background:#2f1d4a; 
+  color:#e8b8ff; 
+  border-color:#5a2d6e}
+.top{ 
+  max-width:1100px; 
+  margin:0 auto; 
+  background:linear-gradient(135deg,#8b5cf6,#ff5ca1); 
+  border-radius:28px; 
+  padding:18px; 
+  display:flex; 
+  justify-content:space-between; 
+  flex-wrap:wrap;gap:12px; 
+  color:#fff; 
+  box-shadow:0 12px 0 #f5c2e0}
+.photo-wrap{ 
+  display:flex; 
+  gap:14px; align-items:center}
+.photo{ 
+  width:86px; 
+  height:86px; 
+  border-radius:22px; 
+  background:#fff; 
+  padding:3px; 
+  cursor:pointer; 
+  position:relative; 
+  overflow:hidden; 
+  box-shadow:0 6px 0 rgba(0,0,0,0.15)}
+.photo img{
+  width:100%;
+  height:100%; 
+  object-fit:cover; 
+  border-radius:18px; 
+  display:block}
+.photo.add{ 
+  position:absolute; 
+  inset:0; 
+  background:rgba(0,0,0,0.5); 
+  display:grid; 
+  place-items:center; 
+  font-size:11px; 
+  opacity:0; 
+  transition:.3s; 
+  color:#fff; 
+  font-family:Fredoka; 
+  text-align:center}
+.photo:hover.add{ 
+  opacity:1}
+.time-bar{ 
+  max-width:1100px; 
+  margin:14px auto; 
+  display:grid; 
+  grid-template-columns:1fr 1fr 1fr; 
+  gap:14px}
+.mini-box{ 
+  border-radius:18px; 
+  padding:14px; 
+  text-align:center;
+  border:2px solid #ffd6e8; 
+  background:#fff; 
+  box-shadow:0 6px 0 #ffd6e8}
+body.dark.mini-box{ 
+  background:#221436; 
+  border-color:#5a2d6e; 
+  box-shadow:0 6px 0 #5a2d6e; 
+  color:#fff}
+.mini-box b{ 
+  font-family:Fredoka; 
+  font-size:12px; 
+  display:block; 
+  margin-bottom:3px; 
+  color:#8b5cf6}
+.mini-box.val{ 
+  font-family:Fredoka; 
+  font-size:19px}
+.shortcut-bar{ 
+  max-width:1100px; 
+  margin:0 auto 14px; 
+  display:grid; 
+  grid-template-columns:repeat(5,1fr); 
+  gap:10px}
+.shortcut{ 
+  border-radius:16px; 
+  padding:14px; 
+  text-align:center; 
+  border:2px solid #ffd6e8; 
+  background:#fff; 
+  box-shadow:0 5px 0 #ffd6e8; 
+  text-decoration:none; 
+  color:#444; 
+  transition:.2s; 
+  display:block}
+.shortcut:hover{ 
+  transform:translateY(-3px); 
+  box-shadow:0 8px 0 #ffd6e8; 
+  border-color:#ff5ca1}
+.shortcut span{ 
+  font-size:22px; 
+  display:block}
+.shortcut b{ 
+  font-family:Fredoka;
+  font-size:12px; 
+  display:block; 
+  margin-top:4px}
+body.dark.shortcut{ 
+  background:#221436; 
+  border-color:#5a2d6e; 
+  box-shadow:0 5px 0 #5a2d6e; 
+  color:#ffd6ee}
+.main{ 
+  max-width:1100px; 
+  margin:0 auto; 
+  display:grid; 
+  grid-template-columns:320px 1fr; 
+  gap:16px}
+.box{ 
+  background:#fff; 
+  border:2px solid #ffd6e8;
+  border-radius:20px; 
+  padding:18px; 
+  box-shadow:0 8px 0 #ffd6e8; 
+  scroll-margin-top:20px}
+.box-title{ 
+  font-family:Fredoka; 
+  font-size:17px; 
+  margin-bottom:10px; 
+  display:flex; 
+  gap:8px; 
+  align-items:center}
+.box-title i{ 
+  width:30px; 
+  height:30px; 
+  background:linear-gradient(135deg,#8b5cf6,#ff5ca1); 
+  border-radius:9px; 
+  display:grid;
+  place-items:center; 
+  color:#fff; 
+  font-style:normal}
+.item{ font-size:12.5px; 
+  line-height:1.5; 
+  padding:11px; 
+  background:#fff7fb; 
+  border-radius:12px; 
+  border:1px dashed #ffd6e8; 
+  margin-bottom:8px}
+.btn{ 
+  border:none; 
+  padding:9px 13px; 
+  border-radius:100px; 
+  font-family:Fredoka; 
+  cursor:pointer;
+  font-size:11px}
+.btn-white{
+  background:#fff;
+  color:#8b5cf6}
+.btn-pink{
+  background:linear-gradient(90deg,#8b5cf6,#ff5ca1);
+  color:#fff}
+input[type=file]{display:none}
+@media(max-width:900px){.main{grid-template-columns:1fr}.time-bar{grid-template-columns:1fr}.shortcut-bar{grid-template-columns:repeat(3,1fr)}body{padding:12px}}
+@media print{.btn,.time-bar,.shortcut-bar{display:none}body{background:#fff;padding:0}.box{box-shadow:none}}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Gemma Faye A. Triste",
+  "alternateName": "Gemma Faye Triste",
+  "jobTitle": "BSINTE Student",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "NVSU Bambang Campus" },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Purok 4, Magsaysay Hill, Bambang",
+    "addressRegion": "Nueva Vizcaya",
+    "postalCode": "3702",
+    "addressCountry": "PH"
+  },
+  "email": "mailto:gemmafayetriste2@gmail.com",
+  "url": "https://GemmaFayeTriste.github.io",
+  "telephone": "+63 951 7071 834",
+  "knowsAbout": ["Playing Arnis", "Designing", "Journaling", "Photography"]
+}
+
+</script>
+</head>
+<body>
+<div class="top">
+<div class="photo-wrap">
+<div class="photo" onclick="document.getElementById('fileInput').click()">
+<img id="myPhoto" src="gemma.jpg" alt="Gemma Faye Triste">
+<div class="add">📸<br>Click to add photo</div>
+</div>
+<div>
+<h1 style="font-family:Fredoka;font-size:30px;line-height:0.95">🍒Gemma Faye<br>A. Triste🍒</h1>
+<p style="font-family:Fredoka;font-size:12px;margin-top:5px;opacity:.95">✨ BSINTE • NVSU Bambang</p>
+<div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+<span style="background:rgba(255,255,255,0.22);padding:5px 10px;border-radius:100px;font-size:10px;border:1px solid rgba(255,255,255,0.3)">📍 Purok 4, Bambang 3702</span>
+<span style="background:rgba(255,255,255,0.22);padding:5px 10px;border-radius:100px;font-size:10px;border:1px solid rgba(255,255,255,0.3)">📧 gemmafayetriste2@gmail.com</span>
+<span style="background:rgba(255,255,255,0.22);padding:5px 10px;border-radius:100px;font-size:10px;border:1px solid rgba(255,255,255,0.3)">📧 GemmaFayeTriste.github.io</span>
+</div>
+</div>
+</div>
+<div style="display:flex;gap:8px;align-items:center">
+<button class="btn btn-white" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+<button class="btn btn-white" onclick="window.print()">🖨️ PDF</button>
+</div>
+</div>
+<div class="time-bar">
+<div class="mini-box"><b>🕒 LIVE TIME</b><div class="val" id="clock">--:--:--</div><div style="font-size:10px;color:#999">Asia/Manila</div></div>
+<div class="mini-box"><b>📅 DATE</b><div class="val" id="date" style="font-size:15px">Loading...</div><div style="font-size:10px;color:#999" id="day">--</div></div>
+<div class="mini-box" style="background:linear-gradient(135deg,#8b5cf6,#ff5ca1);color:#fff;border:none;box-shadow:0 6px 0 #d9a0ff"><b style="color:#fff">🎨 THEME</b><div class="val" id="themeStatus">💜 Pink Light</div><button class="btn btn-white" style="margin-top:5px" onclick="toggleTheme()">Switch ✨</button></div>
+</div>
+<div class="shortcut-bar">
+<a class="shortcut" href="#about"><span>👩‍🎓</span><b>About Me</b></a>
+<a class="shortcut" href="#education"><span>🎓</span><b>Education</b></a>
+<a class="shortcut" href="#experiences"><span>💼</span><b>Experiences</b></a>
+<a class="shortcut" href="#skills"><span>🌸</span><b>Skills</b></a>
+<a class="shortcut" href="#talents"></span>📸</span><b>Talents</b></a>
+</div>
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="box" id="about">
+<div class="box-title"><i>👩</i> About Me</div>
+<div class="item">✨ I am <b>Gemma Faye Alcantara Triste</b> from <b>Purok 4, Magsaysay Hill, Bambang, Nueva Vizcaya 3702</b>. BSINTE student who loves <b>Playing Arnis 🥋</b> and <b>Designing 🎨</b> 💜</div>
+<div class="item">📱 (+63 951 7071 834)<br>📧 gemmafayetriste2@gmail.com <br>📧GemmaFayeTriste.github.io</div>
+</div>
+<div class="box" id="skills">
+<div class="box-title"><i>🌸</i> Skills</div>
+<div class="item">🥋 Playing Arnis — 95% 💖</div>
+<div class="item">🎨 Designing — 90% 💜</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="box" id="education">
+<div class="box-title"><i>🎓</i> Education</div>
+<div class="item"><b>🏫 Elementary</b> - Magsaysay Hill<br>2012-2019 — 🏆 <b>Valedictorian</b></div>
+<div class="item"><b>🏫 Secondary</b> - Bambang National High<br>2019-2025 — 🏅 <b>With Honors</b></div>
+<div class="item"><b>🎓 Tertiary</b> - NVSU Bambang Campus<br>2025-Present — BSINTE</div>
+</div>
+<div class="box" id="experiences">
+<div class="box-title"><i>💼</i> Experiences</div>
+<div class="item">🍒 Assistant in Printing Services</div>
+<div class="item">🍒 Academic Commissioner</div>
+<div class="item">🍒 Cleaner — hardworking & disciplined</div>
+<div>
+<div class="box" id="Talents">
+<div class="box-title"><i>📸</i> Talents </div>
+<div class="item">🍒 Eating </div>
+<div class="item">🍒 Designing</div>
+<div class="item">🍒 Journaling</div>
+<div class="item">🍒 Photography</div>
+<div>
+<div>
+</div>
+<div class="card contact-card">
+<div class="box" id="contact">
+<div class="box-title"><i>📧</i> Contact Me!</div>
+<p id="contact-message">Feel free to contact me!</p>
+<p>📧 Email: <a id="email-link" href="mailto:gemmafayetriste2@gmail.com">gemmafayetriste2@gmail.com</a></p>
+<p>📧 GitHub: <a id="github-link" href="https://github.com/gemmafayetriste" target="_blank" rel="noopener noreferrer">Visit my GitHub</a></p>
+            </div>
+        </section>
+    </main>
+</div>
+</div>
+</div>
+<input type="file" id="fileInput" accept="image/*">
+<script>
+function tick(){const now=new Date();document.getElementById('clock').textContent=now.toLocaleTimeString('en-PH',{timeZone:'Asia/Manila',hour12:true});document.getElementById('date').textContent=now.toLocaleDateString('en-PH',{timeZone:'Asia/Manila',month:'long',day:'numeric',year:'numeric'});document.getElementById('day').textContent=now.toLocaleDateString('en-PH',{timeZone:'Asia/Manila',weekday:'long'})+" • Bambang";}setInterval(tick,1000);tick();
+let isDark=localStorage.getItem('gemmaTheme')==='dark';function applyTheme(){document.body.classList.toggle('dark',isDark);document.getElementById('themeStatus').textContent=isDark?'🌙 Dark Purple':'💜 Pink Light';document.getElementById('themeBtn').textContent=isDark?'☀️ Light':'🌙 Dark';}function toggleTheme(){isDark=!isDark;localStorage.setItem('gemmaTheme',isDark?'dark':'light');applyTheme();}applyTheme();
+const fileInput=document.getElementById('fileInput');const myPhoto=document.getElementById('myPhoto');const savedPhoto=localStorage.getItem('gemmaPhoto');if(savedPhoto) myPhoto.src=savedPhoto;
+fileInput.addEventListener('change',function(e){const file=e.target.files[0];if(!file) return;const reader=new FileReader();reader.onload=function(ev){myPhoto.src=ev.target.result;localStorage.setItem('gemmaPhoto',ev.target.result);alert('💖 Photo saved! ✨');};reader.readAsDataURL(file);});
+function removePhoto(){localStorage.removeItem('gemmaPhoto');myPhoto.src="profile-image.jpg";alert('Photo removed 🗑️');}
+const portfolioData = JSON.parse(document.getElementById('portfolio-data').textContent);
+console.log('Portfolio loaded:', portfolioData.profile.fullName);
+</script>
+<script src="css/js/json/projects.json"></script>
+
+
+<footer>
+        <p id="footer-text">&copy; 2026 Gemma Faye Triste | My Portfolio</p>
+
+    </footer>
+
+
+<script id="portfolio-data" type="application/json">
+{
+  "profile": {
+    "fullName": "Gemma Faye Alcantara Triste",
+    "displayName": "Gemma Faye A. Triste",
+    "course": "BSINTE",
+    "school": "NVSU Bambang Campus",
+    "location": "Purok 4, Magsaysay Hill, Bambang, Nueva Vizcaya 3702",
+    "phone": "+63 951 7071 834",
+    "email": "gemmafayetriste2@gmail.com",
+    "website": "GemmaFayeTriste.github.io"
+  },
+  "education": [
+    { "level": "Elementary", "school": "Magsaysay Hill", "years": "2012-2019", "award": "Valedictorian" },
+    { "level": "Secondary", "school": "Bambang National High", "years": "2019-2025", "award": "With Honors" },
+    { "level": "Tertiary", "school": "NVSU Bambang Campus", "years": "2025-Present", "course": "BSINTE" }
+  ],
+  "experiences": [
+    "Assistant in Printing Services",
+    "Academic Commissioner",
+    "Cleaner - hardworking & disciplined"
+  ],
+  "skills": [
+    { "name": "Playing Arnis", "level": 95 },
+    { "name": "Designing", "level": 90 }
+  ],
+  "talents": ["Eating", "Designing", "Journaling", "Photography"]
+}
+
+</script>
+
+</body>
+</html>
